@@ -1,0 +1,35 @@
+@import "../variables";
+
+.cb-info-modal {
+  background-color: $brand-secondary;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  padding: rem(43) rem(40);
+  z-index: 5;
+  transition: .3s;
+  transform: translateX(100%);
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  &__close {
+    background: transparent;
+    outline: none;
+    border: none;
+    padding: 0;
+    position: absolute;
+    right: 26px;
+    top: 35px;
+  }
+
+  &__body {
+    & > * {
+      font-weight: 300;
+      font-size: rem(20);
+    }
+  }
+}

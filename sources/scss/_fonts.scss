@@ -1,0 +1,6 @@
+@import "variables";
+
+@include font-face("Beausite Fit Trial", "../fonts/BeausiteFitWeb-Thin", 300, normal);
+@include font-face("Beausite Fit Trial", "../fonts/BeausiteFitWeb-ThinItalic", 300, italic);
+
+@include font-face("Optima", "../fonts/Optima", 400, normal);

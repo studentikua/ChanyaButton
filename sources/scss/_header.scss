@@ -1,0 +1,59 @@
+@import "variables";
+
+.cb-full {
+  .cb-header  {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+}
+
+.cb-header {
+  padding: rem(28px) rem(20px);
+  display: flex;
+
+  @media (min-width: 768px) {
+    padding: rem(43px) rem(42);
+  }
+
+  a {
+    font-size: rem(16);
+
+    @media (min-width: 768px) {
+      font-size: rem(20);
+    }
+  }
+}
+
+
+.cb-nav {
+  display: flex;
+  padding: 0 rem(10);
+  gap: 10px;
+  margin-left: auto;
+
+  @media (min-width: 768px) {
+    padding: 0 rem(50);
+    margin: 0;
+  }
+
+  @media (min-width: 992px) {
+    padding: 0 rem(250);
+  }
+}
+
+.btn {
+  &-info {
+    background: transparent;
+    outline: none;
+    border: none;
+    padding: 0;
+    font-size: rem(16);
+
+    @media (min-width: 768px) {
+      font-size: rem(20);
+    }
+  }
+}

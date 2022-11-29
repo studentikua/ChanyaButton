@@ -1,0 +1,111 @@
+.cb-work {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+
+  @media (min-width: 768px) {
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  &__nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: rem(24);
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    line-height: 104%;
+    padding-top: rem(60);
+
+    @media (min-width: 768px) {
+      padding-top: rem(100);
+      padding-left: rem(38);
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    @media (min-width: 992px) {
+      font-size: rem(40);
+    }
+
+    @media (min-width: 1200px) {
+      font-size: rem(64);
+      padding-top: rem(43);
+    }
+
+    &-img {
+      position: absolute;
+      overflow: hidden;
+      transition: 0.3s;
+      margin-bottom: rem(40);
+      top: 0;
+      width: 100%;
+      height: 392px;
+      opacity: 0;
+      visibility: hidden;
+
+      @media (min-width: 768px) {
+        left: 0;
+        width: 50%;
+        height: 100%;
+        margin: 0;
+      }
+
+      img {
+        @media (min-width: 768px) {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    a {
+      display: inline-block;
+      position: relative;
+      z-index: 4;
+      margin: 0 0 rem(15) rem(15);
+
+      @media (min-width: 768px) {
+        margin: 0;
+      }
+
+      &.coming {
+        color: rgba($brand-primary, .4);
+
+        &:hover {
+          font-style: normal;
+          cursor: default;
+        }
+
+        &::after {
+          content: 'Coming soon';
+          font-size: rem(16);
+          color: $brand-primary;
+          text-transform: capitalize;
+
+          @media (min-width: 768px) {
+            font-size: rem(20);
+          }
+        }
+      }
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        font-style: italic;
+
+        & + .cb-work__nav-img {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@@if(context.list) {
+    <div class="cb-wrapper-carousel">
+        <div class="swiper-container cb-carousel">
+            <div class="swiper-wrapper">
+    
+                <!-- <div class="swiper-slide cb-card">
+                    @@if(context.linkImg) {
+                        <img src="@@linkImg" alt="">
+                    }
+                
+                    data-remodal-target="<?php echo esc_attr('rm-' . $indx) ?>
+                
+                    <div class="remodal cb-remodal" data-remodal-id="<?php echo esc_attr('rm-' . $indx) ?>">
+                        
+                
+                
+                    </div>
+                </div> -->
+                @@for (var i = 0; i < list.length; i++) {
+                    <div class="swiper-slide cb-card">
+                        <img src="`+list[i].linkImg+`" alt="image">
+
+                        
+
+                        <div class="remodal cb-remodal" data-remodal-id="rm-`+i+`">
+                            <img src="`+list[i].linkImgModal+`" alt="`+list[i].titleModal+`">
+                            <p>`+list[i].titleModal+`</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
