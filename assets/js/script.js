@@ -6955,33 +6955,22 @@ _gsap.gsap.registerPlugin(_ScrollTrigger.ScrollTrigger);
   $('.cb-info-modal__close').click(function () {
     $('.cb-info-modal').removeClass('open');
   });
-  $('.cb-about').click(function (event) {
+  function activeImg(event) {
     var target = event.target;
     console.log(target.getAttribute('data-img'));
     $('.cb-about__img').removeClass('active');
     if (target.classList.contains('cb-about__trigger')) {
       $(".cb-about__img-".concat(target.getAttribute('data-img'))).addClass('active');
     }
+  }
+  $('.cb-about').click(function (event) {
+    activeImg(event);
   });
-
-  // let parent = document.querySelector('.cb-about__inner');
-  // let menuItem = parent.querySelectorAll('.cb-about__trigger');
-
-  // parent.addEventListener('click', (event) => {
-  //   // Отлавливаем элемент в родители на который мы нажали
-  //   let target = event.target;
-
-  //   // Проверяем тот ли это элемент который нам нужен
-  //   if(target.classList.contains('menu__item')) {
-  //     for(let i = 0; i < menuItem.length; i++) {
-  //       // Убираем у других
-  //       menuItem[i].classList.remove('active');
-  //     }
-  //     // Добавляем тому на который нажали
-  //     target.classList.add('active');
-  //   }
-
-  // });
+  $('.cb-about__trigger').hover(function (event) {
+    activeImg(event);
+  }, function () {
+    $('.cb-about__img').removeClass('active');
+  });
 })(jQuery);
 
 },{"./app/functions":1,"./app/gsap/ScrollTrigger":2,"./app/gsap/gsap":3,"./app/gutenberg":4,"@fancyapps/fancybox":6,"swiper/swiper-bundle":7}],6:[function(require,module,exports){
