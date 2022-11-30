@@ -25,8 +25,12 @@ gsap.registerPlugin(ScrollTrigger);
       hashTracking: false
   });
 
-  new Swiper('.cb-carousel', {
+  const carousel = new Swiper('.cb-carousel', {
     slidesPerView: "auto",
+    // momentumBounceRatio: 50,
+    // momentumRatio: 50,
+    // momentumVelocityRatio: 50,
+    speed: 1000,
     spaceBetween: 20,
     freeMode: true,
     mousewheel: {
@@ -37,6 +41,18 @@ gsap.registerPlugin(ScrollTrigger);
         slidesPerView: 1,
         spaceBetween: 40
       },
+    },
+    on: {
+      slideChange: function() {
+          setTimeout(function () {
+              carousel.params.mousewheel.releaseOnEdges = false;
+          }, 500);
+      },
+      reachEnd: function() {
+          setTimeout(function () {
+              carousel.params.mousewheel.releaseOnEdges = true;
+          }, 750);
+      }
     }
   });
 

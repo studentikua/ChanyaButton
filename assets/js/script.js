@@ -6935,8 +6935,12 @@ _gsap.gsap.registerPlugin(_ScrollTrigger.ScrollTrigger);
   $('[data-remodal-id]').remodal({
     hashTracking: false
   });
-  new _swiperBundle.default('.cb-carousel', {
+  var carousel = new _swiperBundle.default('.cb-carousel', {
     slidesPerView: "auto",
+    // momentumBounceRatio: 50,
+    // momentumRatio: 50,
+    // momentumVelocityRatio: 50,
+    speed: 1000,
     spaceBetween: 20,
     freeMode: true,
     mousewheel: {
@@ -6946,6 +6950,18 @@ _gsap.gsap.registerPlugin(_ScrollTrigger.ScrollTrigger);
       768: {
         slidesPerView: 1,
         spaceBetween: 40
+      }
+    },
+    on: {
+      slideChange: function slideChange() {
+        setTimeout(function () {
+          carousel.params.mousewheel.releaseOnEdges = false;
+        }, 500);
+      },
+      reachEnd: function reachEnd() {
+        setTimeout(function () {
+          carousel.params.mousewheel.releaseOnEdges = true;
+        }, 750);
       }
     }
   });
