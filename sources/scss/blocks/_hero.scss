@@ -21,5 +21,11 @@
     color: #ffef8d;
     position: relative;
     z-index: 4;
+    font-size: rem(20);
+
+    &:hover {
+      font-style: italic;
+      text-decoration: none;
+    }
   }
 }

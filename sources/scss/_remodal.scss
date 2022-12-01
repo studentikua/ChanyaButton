@@ -144,6 +144,15 @@ html.remodal-is-locked {
 .cb-remodal {
   display: inline-block;
 	width: auto;
+  margin: 0 auto;
+
+  @media (min-width: 576px) {
+    max-width: 80%;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 50%;
+  }
 
   &__inner {
     text-align: left;

@@ -11,28 +11,42 @@
 }
 
 .page-about {
+  body {
+    background-color: $brand-secondary;
+  }
   .cb-header  {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    z-index: 2;
+    @media (min-width: 992px) {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
   }
 }
 
 .cb-header {
-  padding: rem(28px) rem(20px);
+  padding: rem(28px) rem(20px) 0;
   display: flex;
 
   @media (min-width: 768px) {
     padding: rem(43px) rem(42);
   }
 
-  a {
-    font-size: rem(16);
+  .cb-logo {
+    width: 140px;
+  }
 
-    @media (min-width: 768px) {
-      font-size: rem(20);
+  a {
+    font-size: rem(20);
+
+    &:hover {
+      text-decoration: none;
+      font-style: italic;
+    }
+
+    &::after {
+      content: "\0000a0";
     }
   }
 }
@@ -41,7 +55,7 @@
 .cb-nav {
   display: flex;
   padding: 0 rem(10);
-  gap: 10px;
+  gap: 20px;
   margin-left: auto;
 
   @media (min-width: 768px) {
@@ -50,7 +64,7 @@
   }
 
   @media (min-width: 992px) {
-    padding: 0 rem(250);
+    padding: 0 20%;
   }
 }
 
@@ -60,13 +74,22 @@
     outline: none;
     border: none;
     padding: 0;
-    font-size: rem(16);
+    font-size: rem(20);
     position: fixed;
     left: 20px;
     bottom: 20px;
+    color: $brand-primary;
+
+    &::after {
+      content: "\0000a0";
+    }
+
+    &:hover {
+      text-decoration: none;
+      font-style: italic;
+    }
 
     @media (min-width: 768px) {
-      font-size: rem(20);
       position: relative;
       left: auto;
       bottom: auto;
