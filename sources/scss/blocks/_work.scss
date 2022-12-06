@@ -47,6 +47,7 @@
       top: 0;
       width: 100%;
       height: 392px;
+      max-height: 60%;
       opacity: 0;
       visibility: hidden;
 
@@ -54,6 +55,7 @@
         left: 0;
         width: 50%;
         height: 100%;
+        max-height: none;
         margin: 0;
       }
 
@@ -74,7 +76,7 @@
       display: inline-block;
       position: relative;
       z-index: 4;
-      margin: 0 0 rem(15) rem(15);
+      margin: 0 0 0 rem(15);
 
       @media (min-width: 768px) {
         margin: 0;
@@ -90,7 +92,7 @@
 
         &::after {
           content: 'Coming soon';
-          font-size: rem(16);
+          font-size: rem(12);
           color: $brand-primary;
           text-transform: capitalize;
 

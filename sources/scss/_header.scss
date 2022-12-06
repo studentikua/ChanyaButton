@@ -11,8 +11,11 @@
 }
 
 .page-about {
+  height: 100%;
+
   body {
     background-color: $brand-secondary;
+    height: 100%;
   }
   .cb-header  {
     @media (min-width: 992px) {

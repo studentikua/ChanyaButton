@@ -6922,6 +6922,9 @@ var _functions = require("./app/functions");
 var _fancybox = _interopRequireDefault(require("@fancyapps/fancybox"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 _gsap.gsap.registerPlugin(_ScrollTrigger.ScrollTrigger);
+function isTouchDevice() {
+  return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+}
 (function ($) {
   $('[data-fancybox]').fancybox({
     youtube: {
@@ -6973,7 +6976,7 @@ _gsap.gsap.registerPlugin(_ScrollTrigger.ScrollTrigger);
   });
   function activeImg(event) {
     var target = event.target;
-    console.log(target.getAttribute('data-img'));
+    console.log(target);
     $('.cb-about__img').removeClass('active');
     if (target.classList.contains('cb-about__trigger')) {
       $(".cb-about__img-".concat(target.getAttribute('data-img'))).addClass('active');
@@ -6982,11 +6985,13 @@ _gsap.gsap.registerPlugin(_ScrollTrigger.ScrollTrigger);
   $('.cb-about').click(function (event) {
     activeImg(event);
   });
-  $('.cb-about__trigger').hover(function (event) {
-    activeImg(event);
-  }, function () {
-    $('.cb-about__img').removeClass('active');
-  });
+  if (!isTouchDevice()) {
+    $('.cb-about__trigger').hover(function (event) {
+      activeImg(event);
+    }, function () {
+      $('.cb-about__img').removeClass('active');
+    });
+  }
 })(jQuery);
 
 },{"./app/functions":1,"./app/gsap/ScrollTrigger":2,"./app/gsap/gsap":3,"./app/gutenberg":4,"@fancyapps/fancybox":6,"swiper/swiper-bundle":7}],6:[function(require,module,exports){

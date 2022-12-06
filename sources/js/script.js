@@ -8,6 +8,12 @@ import fancybox from '@fancyapps/fancybox';
 
 gsap.registerPlugin(ScrollTrigger);
 
+function isTouchDevice() {
+  return (('ontouchstart' in window) ||
+     (navigator.maxTouchPoints > 0) ||
+     (navigator.msMaxTouchPoints > 0));
+}
+
 
 (function ($) {
 
@@ -67,7 +73,7 @@ gsap.registerPlugin(ScrollTrigger);
 
   function activeImg(event) {
     let target = event.target;
-    console.log(target.getAttribute('data-img'))
+    console.log(target)
 
     $('.cb-about__img').removeClass('active');
     if (target.classList.contains('cb-about__trigger')) {
@@ -79,13 +85,14 @@ gsap.registerPlugin(ScrollTrigger);
     activeImg(event)
   });
 
-
-  $('.cb-about__trigger').hover(
-    function(event) {
-      activeImg(event)
-    }, function() {
-      $('.cb-about__img').removeClass('active');
-    }
-  );
+  if (!isTouchDevice()) {
+    $('.cb-about__trigger').hover(
+      function(event) {
+        activeImg(event)
+      }, function() {
+        $('.cb-about__img').removeClass('active');
+      }
+    );
+  }
 
 })(jQuery);
