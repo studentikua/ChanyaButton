@@ -6986,6 +6986,7 @@ function isTouchDevice() {
     activeImg(event);
   });
   if (!isTouchDevice()) {
+    $('.cb-about__img').css('pointer-events', 'none');
     $('.cb-about__trigger').hover(function (event) {
       activeImg(event);
     }, function () {

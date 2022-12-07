@@ -25,7 +25,7 @@ function isTouchDevice() {
     vimeo : {
         color : 'f00'
     }
-});
+  });
 
   $('[data-remodal-id]').remodal({
       hashTracking: false
@@ -86,6 +86,7 @@ function isTouchDevice() {
   });
 
   if (!isTouchDevice()) {
+    $('.cb-about__img').css('pointer-events', 'none');
     $('.cb-about__trigger').hover(
       function(event) {
         activeImg(event)

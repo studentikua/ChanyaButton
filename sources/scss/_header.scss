@@ -43,7 +43,8 @@
   a {
     font-size: rem(20);
 
-    &:hover {
+    &:hover,
+    &.active {
       text-decoration: none;
       font-style: italic;
     }

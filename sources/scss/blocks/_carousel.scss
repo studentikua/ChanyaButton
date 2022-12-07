@@ -19,9 +19,11 @@
 .cb-carousel{
   display: flex;
   align-items: flex-end;
+  margin-bottom: 29px;
 
   @media (min-width: 768px) {
     height: 100%;
+    margin: 0;
   }
 }
 

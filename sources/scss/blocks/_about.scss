@@ -85,6 +85,11 @@
         width: 90%;
         left: 2%;
         transform: translate(0, -50%);
+
+        img {
+          width: auto;
+          max-width: 100%;
+        }
       }
   
       &-spanish {

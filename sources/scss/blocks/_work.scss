@@ -1,12 +1,13 @@
 .cb-work {
   display: flex;
-  align-items: flex-end;
   width: 100%;
   height: 100%;
+  padding-top: 52vh;
 
   @media (min-width: 768px) {
     justify-content: flex-end;
     align-items: flex-start;
+    padding: 0;
   }
 
   &__nav {
@@ -16,11 +17,11 @@
     font-size: rem(24);
     letter-spacing: -0.01em;
     text-transform: uppercase;
-    line-height: 104%;
-    padding-top: rem(60);
-
+    line-height: 120%;
+    
     @media (min-width: 380px) {
       font-size: rem(34);
+      
     }
 
     @media (min-width: 768px) {
@@ -28,6 +29,7 @@
       padding-left: rem(38);
       flex: 0 0 50%;
       max-width: 50%;
+      line-height: 104%;
     }
 
     @media (min-width: 992px) {
@@ -46,8 +48,8 @@
       margin-bottom: rem(40);
       top: 0;
       width: 100%;
-      height: 392px;
-      max-height: 60%;
+      // height: 392px;
+      max-height: 50vh;
       opacity: 0;
       visibility: hidden;
 
@@ -96,7 +98,7 @@
           color: $brand-primary;
           text-transform: capitalize;
 
-          @media (min-width: 380px) {
+          @media (min-width: 576px) {
             font-size: rem(20);
           }
         }

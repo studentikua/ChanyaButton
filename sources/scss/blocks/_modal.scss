@@ -7,7 +7,7 @@
   right: 0;
   width: 100%;
   height: 100%;
-  padding: rem(43) rem(40);
+  padding: rem(43) 0;
   z-index: 5;
   transition: .3s ease-out;
   transform: translateX(100%);
@@ -35,6 +35,7 @@
     flex-direction: column;
     height: 100%;
     overflow-y: auto;
+    padding: 0 rem(40);
 
     @media (min-width: 992px) {
       max-width: 80%;
