@@ -15,6 +15,18 @@ function isTouchDevice() {
 }
 
 
+function openFullscreen(selector) {
+  const elem = document.querySelector(selector);
+
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+
 (function ($) {
 
   $('[data-fancybox]').fancybox({
@@ -26,6 +38,14 @@ function isTouchDevice() {
         color : 'f00'
     }
   });
+
+  $('[data-fancybox-full]').fancybox({
+    afterLoad : function( instance, current ) {
+      console.info( instance );
+      openFullscreen('.fancybox-slide--video video');
+    }
+  });
+
 
   $('[data-remodal-id]').remodal({
       hashTracking: false
@@ -95,5 +115,34 @@ function isTouchDevice() {
       }
     );
   }
+
+
+  if (document.querySelector('.player video')) {
+    let videoElem = document.querySelector('.player video');
+    let playButton = document.querySelector('.player .play');
+
+    playButton.addEventListener("click", handlePlayButton, false);
+    playVideo();
+
+    async function playVideo() {
+      try {
+        await videoElem.play();
+        playButton.classList.add("playing");
+      } catch (err) {
+        playButton.classList.remove("playing");
+      }
+    }
+
+    function handlePlayButton() {
+      if (videoElem.paused) {
+        playVideo();
+      } else {
+        videoElem.pause();
+        playButton.classList.remove("playing");
+      }
+    }
+  }
+
+
 
 })(jQuery);
